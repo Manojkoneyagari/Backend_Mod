@@ -57,7 +57,7 @@ resource "terraform_data" "main" {
 
 resource "aws_ami_from_instance" "main" {
   name               = "${local.common_name}-${var.component}-${aws_instance.main.id}"
-  source_instance_id = aws_instance.main.is
+  source_instance_id = aws_instance.main.id
   depends_on = [ aws_ec2_instance_state.main ]
 
   tags = merge(
