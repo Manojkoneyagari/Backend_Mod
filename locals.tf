@@ -6,7 +6,7 @@ locals {
 
 
   private_subnet_id = split(",", data.aws_ssm_parameter.private_subnet_ids.value)[0]
-  sg_id  = var.component == "frontend" ? data.aws-aws_ssm_parameter.frontend_sg_ids : data.aws-aws_ssm_parameter.backend_sg_ids
+  sg_id  = var.component == "frontend" ? data.aws_ssm_parameter.frontend_sg_ids : data.aws_ssm_parameter.backend_sg_ids
   backend_alb_listener = data.aws_ssm_parameter.backend_alb_listener.arn
   frontend_alb_listener = data.aws_ssm_parameter.frontend_alb_listener.arn
   rule_priority = var.rule_priority

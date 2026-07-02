@@ -182,7 +182,7 @@ resource "aws_lb_listener_rule" "main" {
   condition {
     host_header {
       #values = ["${var.component}.backend_alb.${local.domain_name}"]
-      values = var.component == "frontend" ? "${var.project}.${local.domain_name}" : "${var.component}.backend_alb.${local.domain_name}"
+      values = var.component == "frontend" ? ["${var.project}.${local.domain_name}"] : ["${var.component}.backend_alb.${local.domain_name}"]
     }
   }
 }
