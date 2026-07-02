@@ -127,7 +127,7 @@ resource "aws_autoscaling_group" "main" {
     version = "$Latest"
   }
   vpc_zone_identifier       = [local.private_subnet_id]
-  target_group_arns = [aws_lb_target_group.main] # Autoscaling launches into specific target group
+  target_group_arns = [aws_lb_target_group.main.arn] # Autoscaling launches into specific target group
 
 
   instance_refresh {
