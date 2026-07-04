@@ -1,16 +1,16 @@
 variable "project" {
-  type    = string
+  type = string
 
 }
 
 variable "environment" {
-  type    = string
- 
+  type = string
+
 }
 
 variable "instance_type" {
-  type    = string
-  
+  type = string
+
 }
 
 variable "component" {
@@ -18,5 +18,5 @@ variable "component" {
 }
 
 variable "rule_priority" {
-  
+
 }

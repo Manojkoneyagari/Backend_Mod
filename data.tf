@@ -40,11 +40,15 @@ data "aws_ssm_parameter" "frontend_sg_ids" {
 }
 
 data "aws_ssm_parameter" "backend_alb_listener" {
-  name = "${var.project}/${var.environment}/backend_alb_listener"
+  name = "/${var.project}/${var.environment}/backend_alb_listener"
 }
 
-data "aws_ssm_parameter" "frontend_alb_listener" {
-  name = "${var.project}/${var.environment}/frontend_alb_listener"
+data "aws_ssm_parameter" "frontend_alb_listener_http" {
+  name = "/${var.project}/${var.environment}/frontend_alb_listener_http"
+}
+
+data "aws_ssm_parameter" "frontend_alb_listener_https" {
+  name = "/${var.project}/${var.environment}/frontend_alb_listener_https"
 }
 
 data "aws_route53_zone" "backend" {
