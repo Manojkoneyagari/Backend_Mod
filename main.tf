@@ -17,6 +17,7 @@ resource "aws_instance" "main" {
 }
 
 resource "aws_iam_instance_profile" "shipping_profile" {
+  count = var.component == "shipping" ? 1 : 0
   name = "${local.common_name}-shipping"
   role = local.role
 }
