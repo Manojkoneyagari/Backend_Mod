@@ -5,6 +5,7 @@ resource "aws_instance" "main" {
   subnet_id              = local.private_subnet_id
   #key_name = aws_key_pair.deployer.key_name
   key_name = data.aws_key_pair.deployer.key_name
+  iam_instance_profile = var.component == "shipping" ? local.role : null
 
 
 
@@ -14,6 +15,8 @@ resource "aws_instance" "main" {
     }
   )
 }
+
+
 
 resource "terraform_data" "main" {
   triggers_replace = [

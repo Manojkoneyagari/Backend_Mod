@@ -10,6 +10,7 @@ locals {
   backend_alb_listener  = data.aws_ssm_parameter.backend_alb_listener.value
   frontend_alb_listener = data.aws_ssm_parameter.frontend_alb_listener_https.value
   rule_priority         = var.rule_priority
+  role = "Roboshop-dev-mysql"
 
 
 
