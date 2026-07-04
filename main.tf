@@ -5,7 +5,7 @@ resource "aws_instance" "main" {
   subnet_id              = local.private_subnet_id
   #key_name = aws_key_pair.deployer.key_name
   key_name = data.aws_key_pair.deployer.key_name
-  iam_instance_profile = var.component == "shipping" ? aws_iam_instance_profile.shipping_profile.name : null
+  iam_instance_profile = var.component == "shipping" ? aws_iam_instance_profile.shipping_profile[0].name : null
 
 
 
