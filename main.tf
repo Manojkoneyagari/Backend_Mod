@@ -113,7 +113,7 @@ resource "aws_lb_target_group" "main" {
     healthy_threshold   = 2
     unhealthy_threshold = 2
     path                = "/health"
-    port                = 8080
+    port                = var.component == "frontend" ? 80 : 8080
     protocol            = "HTTP"
     interval            = 20
     timeout             = 5
@@ -199,7 +199,7 @@ resource "terraform_data" "main_delete" {
   triggers_replace = [
     aws_instance.main.id
   ]
-  depends_on = [aws_autoscaling_policy.main]
+  depends_on = [aws_ami_from_instance.main]
 
   # executes where terraform is running
   provisioner "local-exec" {
